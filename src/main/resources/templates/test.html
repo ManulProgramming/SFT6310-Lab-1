@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link th:href="@{bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{bootstrap-icons.min.css}" rel="stylesheet">
+    <script th:src="@{bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+            <div class="carousel-inner">
+                <h1>Test</h1>
+                <div th:each="d, stat : ${data}">
+                    <div th:class="${stat.index==0 ? 'carousel-item active' : 'carousel-item'}" th:id="|data_${stat.index}|">
+                        <p><span th:text="${d}"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div id="navigation" class="mt-2 d-flex justify-content-center align-items-center">
+              <button type="button" class="btn btn-secondary" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev" onclick="performTask()">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button type="button" class="btn btn-secondary ms-lg-5" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next" onclick="performTask()">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
